@@ -19,7 +19,11 @@ public class Generation : MonoBehaviour
     [SerializeField] private int _TotalLoops = 1;
 
     [Header("Player Reference")]
-    [SerializeField] private Transform player;
+    [SerializeField] private Transform _Player;
+
+    [Header("Spacing (global)")]
+    [Tooltip("Extra spacing added between spawned objects (in world units).")]
+    [SerializeField, Range(0f, 10f)] private float _MinSpacingBetweenObjects = 0.5f;
 
     private List<(Vector3 pos, float radius)> placed = new List<(Vector3, float)>();
 
@@ -75,74 +79,62 @@ public class Generation : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Gets a radius using Collider first, then Renderer fallback.
-    /// Ensures all prefabs (tree/rock/etc.) get correct size.
-    /// </summary>
     private float GetPrefabRadius(GameObject prefab)
     {
-        var col = prefab.GetComponentInChildren<Collider>();
-        if (col)
-        {
-            Vector3 ext = col.bounds.extents;
-            return Mathf.Max(ext.x, ext.z);
-        }
+        var cap = prefab.GetComponentInChildren<CapsuleCollider>();
+        if (cap != null)
+            return cap.radius;
 
-        var rend = prefab.GetComponentInChildren<Renderer>();
-        if (rend)
-        {
-            Vector3 ext = rend.bounds.extents;
-            return Mathf.Max(ext.x, ext.z);
-        }
+        var sph = prefab.GetComponentInChildren<SphereCollider>();
+        if (sph != null)
+            return sph.radius;
+
+        var box = prefab.GetComponentInChildren<BoxCollider>();
+        if (box != null)
+            return Mathf.Max(box.size.x, box.size.z) * 0.5f;
 
         return 1f;
     }
 
     private Vector3 FindValidPosition(float radius, Collider col, float minPlayerDist)
     {
-        const int attempts = 50;
+        const int attempts = 80;
 
         for (int i = 0; i < attempts; i++)
         {
             Vector3 candidate = RandomPointInSurface(col);
 
-            // Player distance restriction (XZ only)
-            if (player && minPlayerDist > 0f)
+            if (_Player && minPlayerDist > 0f)
             {
-                Vector2 p = new Vector2(player.position.x, player.position.z);
+                Vector2 p = new Vector2(_Player.position.x, _Player.position.z);
                 Vector2 c = new Vector2(candidate.x, candidate.z);
 
                 if (Vector2.Distance(c, p) < minPlayerDist)
                     continue;
             }
 
-            // Overlap check
-            bool overlaps = false;
-            foreach (var p in placed)
+            bool overlapsPlaced = false;
+            foreach (var placedObj in placed)
             {
-                float minDist = radius + p.radius;
+                float minDist = radius + placedObj.radius + _MinSpacingBetweenObjects;
 
                 Vector2 a2d = new Vector2(candidate.x, candidate.z);
-                Vector2 b2d = new Vector2(p.pos.x, p.pos.z);
+                Vector2 b2d = new Vector2(placedObj.pos.x, placedObj.pos.z);
 
                 if (Vector2.Distance(a2d, b2d) < minDist)
                 {
-                    overlaps = true;
+                    overlapsPlaced = true;
                     break;
                 }
             }
 
-            if (!overlaps)
+            if (!overlapsPlaced)
                 return candidate;
         }
 
         return RandomPointInSurface(col);
     }
 
-    /// <summary>
-    /// Uses a random XZ pick + raycast + collider closest point check.
-    /// Guarantees the point is INSIDE the actual collider shape.
-    /// </summary>
     private Vector3 RandomPointInSurface(Collider col)
     {
         Bounds b = col.bounds;
@@ -154,12 +146,10 @@ public class Generation : MonoBehaviour
 
             Vector3 origin = new Vector3(x, b.max.y + 5f, z);
 
-            // Raycast to ground
             if (Physics.Raycast(origin, Vector3.down, out RaycastHit hit, 50f))
             {
                 if (hit.collider == col)
                 {
-                    // Confirm the hit is inside actual collider volume
                     Vector3 closest = col.ClosestPoint(hit.point);
 
                     if (closest == hit.point)
@@ -168,7 +158,17 @@ public class Generation : MonoBehaviour
             }
         }
 
-        // fallback on collider center
         return col.bounds.center;
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        foreach (var p in placed)
+        {
+            Gizmos.DrawWireSphere(p.pos, p.radius + _MinSpacingBetweenObjects);
+        }
+    }
+#endif
 }
