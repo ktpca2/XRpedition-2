@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "Test Inputs",
+    "maps": [
+        {
+            "name": "Camera",
+            "id": "14a35295-7d9c-4f6c-943b-80f6690ee98f",
+            "actions": [
+                {
+                    "name": "TakePicture",
+                    "type": "Button",
+                    "id": "03d9d430-7785-4ad4-8561-8cb8809be669",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9d5fa764-9f12-4dc7-a37a-d10a8e87eab6",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TakePicture",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
