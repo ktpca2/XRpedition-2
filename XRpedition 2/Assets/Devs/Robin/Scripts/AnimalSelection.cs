@@ -12,11 +12,6 @@ public class AnimalSelection : MonoBehaviour
         FillAnimalsList();
     }
 
-    void Update()
-    {
-        print(AnimalSelect());
-    }
-
     public Animals AnimalSelect()
     {
         int index = UnityEngine.Random.Range(0, remainingAnimals.Count);
