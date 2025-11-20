@@ -12,6 +12,7 @@ public class AnimalSelection : MonoBehaviour
     void Start()
     {
         FillAnimalsList();
+        GetEnvironment();
     }
 
     /// <summary>
