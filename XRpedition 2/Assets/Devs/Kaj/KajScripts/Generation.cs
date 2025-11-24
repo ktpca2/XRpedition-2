@@ -27,8 +27,12 @@ public class Generation : MonoBehaviour
 
     private List<(Vector3 pos, float radius)> placed = new List<(Vector3, float)>();
 
+    [SerializeField] private AnimalSelection animal;
+
     private void Start()
     {
+        _SpawnList = animal.Environment.prefabHolder;
+
         if (!IsValid())
             return;
 
