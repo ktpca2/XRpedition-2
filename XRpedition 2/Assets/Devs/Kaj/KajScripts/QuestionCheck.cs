@@ -3,14 +3,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-
 public class SimpleQuestionCheck : MonoBehaviour
 {
-    public TextMeshProUGUI[] answerTexts; // Assign each button's text
+    [System.Serializable]
+    public class AnswerUI
+    {
+        public TextMeshProUGUI textField;
+        public Image imageField;
+    }
 
-    public string correctAnswer;
-    public List<string> wrongAnswers;
+    public AnswerUI[] answerUIObjects;   // UI for each answer option
 
+    public List<AnswerData> correctAnswers;  // Text+Image correct answers
+    public List<AnswerData> wrongAnswers;    // Text+Image wrong answers
+
+    private AnswerData chosenCorrectAnswer;
     private int correctIndex;
 
     void Start()
@@ -20,24 +27,27 @@ public class SimpleQuestionCheck : MonoBehaviour
 
     void NewRound()
     {
-        List<string> pool = new List<string>(wrongAnswers);
-        pool.Add(correctAnswer);
+        // Pick one correct answer
+        chosenCorrectAnswer = correctAnswers[Random.Range(0, correctAnswers.Count)];
 
-        // Shuffle the answers
-        for (int i = 0; i < pool.Count; i++)
+        // Build answer list
+        List<AnswerData> allAnswers = new List<AnswerData>(wrongAnswers);
+        allAnswers.Add(chosenCorrectAnswer);
+
+        // Shuffle
+        for (int i = 0; i < allAnswers.Count; i++)
         {
-            int r = Random.Range(0, pool.Count);
-            string temp = pool[i];
-            pool[i] = pool[r];
-            pool[r] = temp;
+            int r = Random.Range(0, allAnswers.Count);
+            (allAnswers[i], allAnswers[r]) = (allAnswers[r], allAnswers[i]);
         }
 
-        // Assign answers to UI and find correct index
-        for (int i = 0; i < answerTexts.Length; i++)
+        // Apply to UI
+        for (int i = 0; i < answerUIObjects.Length; i++)
         {
-            answerTexts[i].text = pool[i];
+            answerUIObjects[i].textField.text = allAnswers[i].text;
+            answerUIObjects[i].imageField.sprite = allAnswers[i].image;
 
-            if (pool[i] == correctAnswer)
+            if (allAnswers[i] == chosenCorrectAnswer)
                 correctIndex = i;
         }
     }
