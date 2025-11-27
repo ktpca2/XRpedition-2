@@ -1,5 +1,4 @@
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
@@ -8,16 +7,17 @@ public class SimpleQuestionCheck : MonoBehaviour
     [System.Serializable]
     public class AnswerUI
     {
-        public TextMeshProUGUI textField;
         public Image imageField;
     }
 
-    public AnswerUI[] answerUIObjects;   // UI for each answer option
+    public AnswerUI[] answerUIObjects;
 
-    public List<AnswerData> correctAnswers;  // Text+Image correct answers
-    public List<AnswerData> wrongAnswers;    // Text+Image wrong answers
+    public List<AnswerData> correctAnswers;
+    public List<AnswerData> wrongAnswers;
 
-    private AnswerData chosenCorrectAnswer;
+    private int currentCorrectIndex = 0;
+    private int currentWrongIndex = 0;  // <-- TRACK WRONG ANSWERS IN ORDER
+
     private int correctIndex;
 
     void Start()
@@ -27,24 +27,30 @@ public class SimpleQuestionCheck : MonoBehaviour
 
     void NewRound()
     {
-        // Pick one correct answer
-        chosenCorrectAnswer = correctAnswers[Random.Range(0, correctAnswers.Count)];
+        AnswerData chosenCorrectAnswer = correctAnswers[currentCorrectIndex];
 
-        // Build answer list
-        List<AnswerData> allAnswers = new List<AnswerData>(wrongAnswers);
+        List<AnswerData> roundWrongs = new List<AnswerData>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (currentWrongIndex >= wrongAnswers.Count)
+                currentWrongIndex = 0;
+
+            roundWrongs.Add(wrongAnswers[currentWrongIndex]);
+            currentWrongIndex++;
+        }
+
+        List<AnswerData> allAnswers = new List<AnswerData>(roundWrongs);
         allAnswers.Add(chosenCorrectAnswer);
 
-        // Shuffle
         for (int i = 0; i < allAnswers.Count; i++)
         {
             int r = Random.Range(0, allAnswers.Count);
             (allAnswers[i], allAnswers[r]) = (allAnswers[r], allAnswers[i]);
         }
 
-        // Apply to UI
         for (int i = 0; i < answerUIObjects.Length; i++)
         {
-            answerUIObjects[i].textField.text = allAnswers[i].text;
             answerUIObjects[i].imageField.sprite = allAnswers[i].image;
 
             if (allAnswers[i] == chosenCorrectAnswer)
@@ -57,6 +63,12 @@ public class SimpleQuestionCheck : MonoBehaviour
         if (index == correctIndex)
         {
             Debug.Log("Correct!");
+
+            currentCorrectIndex++;
+
+            if (currentCorrectIndex >= correctAnswers.Count)
+                currentCorrectIndex = 0;
+
             NewRound();
         }
         else
