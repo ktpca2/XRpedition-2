@@ -9,6 +9,8 @@ public class AnimalSelection : MonoBehaviour
     public EnvironmentData Environment;
     private List<Animals> remainingAnimals;
 
+    private Animals selected;
+
     void Start()
     {
         FillAnimalsList();
@@ -20,9 +22,8 @@ public class AnimalSelection : MonoBehaviour
     /// </summary>
     public Animals AnimalSelect()
     {
-        int index = UnityEngine.Random.Range(0, remainingAnimals.Count);
-
-        Animals selected = remainingAnimals[index];
+        int index = 0;
+        selected = remainingAnimals[index];
         remainingAnimals.RemoveAt(index);
 
         return selected;
