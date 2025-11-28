@@ -161,7 +161,7 @@ MonoBehaviour:
     MinDistanceFromPlayer: 5
   _SpawnSurface: {fileID: 1190915526}
   _TotalLoops: 1
-  _Player: {fileID: 0}
+  _Player: {fileID: 1516859703}
   _MinSpacingBetweenObjects: 5
   animal: {fileID: 433485538}
 --- !u!4 &433485537
