@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SimpleQuestionCheck : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class SimpleQuestionCheck : MonoBehaviour
     public List<AnswerData> wrongAnswers;
 
     private int currentCorrectIndex = 0;
-    private int currentWrongIndex = 0;  // <-- TRACK WRONG ANSWERS IN ORDER
+    private int currentWrongIndex = 0;  
 
     private int correctIndex;
+
+    private int roundCount = 0;
 
     void Start()
     {
@@ -27,6 +30,15 @@ public class SimpleQuestionCheck : MonoBehaviour
 
     void NewRound()
     {
+        roundCount++;
+
+        // If we reached the 6th round, load next scene
+        if (roundCount >= 6)
+        {
+            SceneManager.LoadScene("Main Menu");  // <-- replace with your scene name or index
+            return;
+        }
+
         AnswerData chosenCorrectAnswer = correctAnswers[currentCorrectIndex];
 
         List<AnswerData> roundWrongs = new List<AnswerData>();
@@ -57,6 +69,7 @@ public class SimpleQuestionCheck : MonoBehaviour
                 correctIndex = i;
         }
     }
+
 
     public void OnAnswerClicked(int index)
     {
