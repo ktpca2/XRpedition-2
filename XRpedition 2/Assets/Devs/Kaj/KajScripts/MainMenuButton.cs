@@ -5,7 +5,7 @@ public class Button : MonoBehaviour
 {
     public void StartMenu()
     {
-        SceneManager.LoadScene("Main Scene");
+        SceneManager.LoadScene("KajScene");
     }
 
     public void ExitMenu()
