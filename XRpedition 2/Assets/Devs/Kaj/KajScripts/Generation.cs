@@ -31,12 +31,13 @@ public class Generation : MonoBehaviour
 
     private void Start()
     {
+        selected = GetComponent<AnimalSelection>();
         Generate(selected);
     }
 
     public void Generate(AnimalSelection animal)
     {
-        _SpawnList = animal.Environment.prefabHolder;
+        _SpawnList = selected.Environment.prefabHolder;
 
         if (!IsValid())
             return;

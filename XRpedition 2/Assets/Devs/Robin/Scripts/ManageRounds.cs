@@ -6,10 +6,16 @@ public class ManageRounds : MonoBehaviour
     [SerializeField] private AnimalSelection animal;
 
     private int round = 0;
+    private bool roundActive;
 
     private void Update()
     {
-        
+        StartRound();
+        if (roundActive)
+        {
+            Round();
+        }
+        EndRound();
     }
 
     private void StartRound()
@@ -25,6 +31,6 @@ public class ManageRounds : MonoBehaviour
 
     private void EndRound()
     {
-
+        animal.GetEnvironment();
     }
 }
