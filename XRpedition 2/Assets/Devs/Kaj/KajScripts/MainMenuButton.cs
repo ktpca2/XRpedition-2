@@ -3,9 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
+    [SerializeField] private string GoScene;
     public void StartMenu()
     {
-        SceneManager.LoadScene("KajScene");
+        SceneManager.LoadScene(GoScene);
     }
 
     public void ExitMenu()
