@@ -27,11 +27,17 @@ public class Generation : MonoBehaviour
 
     private List<(Vector3 pos, float radius)> placed = new List<(Vector3, float)>();
 
-    [SerializeField] private AnimalSelection animal;
+    [SerializeField] private AnimalSelection selected;
 
     private void Start()
     {
-        _SpawnList = animal.Environment.prefabHolder;
+        selected = GetComponent<AnimalSelection>();
+        Generate(selected);
+    }
+
+    public void Generate(AnimalSelection animal)
+    {
+        _SpawnList = selected.Environment.prefabHolder;
 
         if (!IsValid())
             return;
@@ -39,7 +45,9 @@ public class Generation : MonoBehaviour
         var col = _SpawnSurface.GetComponent<Collider>();
 
         for (int loop = 0; loop < _TotalLoops; loop++)
+        {
             SpawnAll(col);
+        }
     }
 
     private bool IsValid()
