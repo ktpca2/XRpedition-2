@@ -163,7 +163,7 @@ MonoBehaviour:
   _TotalLoops: 1
   _Player: {fileID: 1516859703}
   _MinSpacingBetweenObjects: 5
-  animal: {fileID: 433485538}
+  selected: {fileID: 433485538}
 --- !u!4 &433485537
 Transform:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca6334f721c8ea44889f847d98b0063f, type: 2}
   - {fileID: 11400000, guid: e03235dcf1cf31c439409c20103e97e2, type: 2}
   - {fileID: 11400000, guid: 495f34f8cdc68cc4ba03e0df1057d1b8, type: 2}
-  Environment: {fileID: 0}
+  Environment: {fileID: 11400000, guid: 306e03351feb87145a7c808f2fae0eaf, type: 2}
 --- !u!1 &1141367409
 GameObject:
   m_ObjectHideFlags: 0
