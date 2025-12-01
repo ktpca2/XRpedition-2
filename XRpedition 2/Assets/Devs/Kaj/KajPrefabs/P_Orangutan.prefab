@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1651924927230453398
+--- !u!1001 &1690213251525168286
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,16 +9,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.67
+      value: 6.9012127
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.040802658
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.53
+      value: 3.6430464
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
       propertyPath: m_LocalRotation.z
@@ -42,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56595ecd01d20a64faf83cc0e0c3ca06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
