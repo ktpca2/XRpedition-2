@@ -6,17 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Devs/Arend/Scenes/Main Menu.unity
+    path: Assets/Devs/Arend/Main Menu.unity
     guid: 62b60762b2ab28a498f65b8c11698221
   - enabled: 0
     path: Assets/Devs/Kaj/KajScenes/Test Scene.unity
     guid: 8fe9b898a054dd94883b3b9e4ee90428
-  - enabled: 1
+  - enabled: 0
     path: Assets/Devs/Kaj/KajScenes/KajScene.unity
     guid: 2ec79b8ca8e3f4f40a377a4280d170dc
   - enabled: 1
     path: Assets/Devs/Kaj/KajScenes/Main Scene.unity
     guid: e904e1c27f622e945aa9042216a53ed6
+  - enabled: 1
+    path: Assets/Devs/Kaj/KajScenes/Win Scene.unity
+    guid: fb0d5623d8eeb3e44b7c8e989268ce19
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c223d5f1fb2c32543964f84c578b6b2c, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 50aef54ea8b666946a455a430e56867b, type: 2}
