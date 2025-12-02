@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Mammoet
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentData
   prefabHolder:
-  - Prefab: {fileID: 3897224030794076535, guid: d246d0ad0700fc142b22eee2fa2b6fff, type: 3}
+  - Prefab: {fileID: 389937051468116536, guid: 6c5b9a76c646c8b4ebcb89738994c55c, type: 3}
     Amount: 10
     MinDistanceFromPlayer: 5

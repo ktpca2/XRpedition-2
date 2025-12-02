@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ijsbeer
   m_EditorClassIdentifier: Assembly-CSharp::AnimalData
   prefabHolder:
-  - Prefab: {fileID: 7668714529969270972, guid: 38144c1306cddf64f9b1172ee9348754, type: 3}
+  - Prefab: {fileID: 2746257490439189873, guid: 3775c1de0db182240af58f599ca1edc3, type: 3}
     Amount: 10
     MinDistanceFromPlayer: 5
