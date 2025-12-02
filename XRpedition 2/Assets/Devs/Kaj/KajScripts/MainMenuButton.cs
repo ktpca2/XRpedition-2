@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
-    [SerializeField] private string GoScene;
+    [SerializeField] private string _GoScene;
     public void StartMenu()
     {
-        SceneManager.LoadScene(GoScene);
+        SceneManager.LoadScene(_GoScene);
     }
 
     public void ExitMenu()

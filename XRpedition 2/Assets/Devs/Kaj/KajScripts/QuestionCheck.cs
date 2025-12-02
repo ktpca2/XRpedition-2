@@ -8,22 +8,22 @@ public class SimpleQuestionCheck : MonoBehaviour
     [System.Serializable]
     public class AnswerUI
     {
-        public Image imageField;
+        public Image ImageField;
     }
 
     [System.Serializable]
     public class AnimalList
     {
-        public UnityEngine.Object Object;   // Prefabs
+        public UnityEngine.Object Object;   
     }
 
     public List<AnimalList> Animal;
-    public Transform spawnPoint;            // <<< ONLY ONE SPAWN POINT
+    public Transform SpawnPoint;           
 
-    public AnswerUI[] answerUIObjects;
+    public AnswerUI[] AnswerUIObjects;
 
-    public List<AnswerData> correctAnswers;
-    public List<AnswerData> wrongAnswers;
+    public List<AnswerData> CorrectAnswers;
+    public List<AnswerData> WrongAnswers;
 
     private int currentCorrectIndex = 0;
     private int currentWrongIndex = 0;
@@ -31,24 +31,19 @@ public class SimpleQuestionCheck : MonoBehaviour
     private int correctIndex;
     private int roundCount = 0;
 
-    private int currentAnimalIndex = 0;     // Which animal to spawn
-    private GameObject currentAnimalObject; // The currently spawned animal
+    private int currentAnimalIndex = 0;     // Dier het moet gaan spawnen
+    private GameObject currentAnimalObject;
 
     void Start()
     {
         NewRound();
     }
 
-    // =============================
-    //      SPAWN / DESPAWN ANIMAL
-    // =============================
     void SpawnAnimal()
     {
-        // Destroy previously spawned animal
         if (currentAnimalObject != null)
             Destroy(currentAnimalObject);
 
-        // Loop animal list
         if (currentAnimalIndex >= Animal.Count)
             currentAnimalIndex = 0;
 
@@ -58,7 +53,7 @@ public class SimpleQuestionCheck : MonoBehaviour
         {
             currentAnimalObject = Instantiate(
                 prefab,
-                spawnPoint.position,
+                SpawnPoint.position,
                 prefab.transform.rotation
             );
         }
@@ -70,61 +65,50 @@ public class SimpleQuestionCheck : MonoBehaviour
         currentAnimalIndex++;
     }
 
-
-    // =============================
-    //          NEW ROUND
-    // =============================
     void NewRound()
     {
         roundCount++;
 
-        // Spawn the next animal (and delete old one)
         SpawnAnimal();
 
-        // Load next scene after round 6
         if (roundCount >= 6)
         {
             SceneManager.LoadScene("Main Menu");
             return;
         }
 
-        // Answer logic
-        AnswerData chosenCorrectAnswer = correctAnswers[currentCorrectIndex];
+        AnswerData chosenCorrectAnswer = CorrectAnswers[currentCorrectIndex];
 
         List<AnswerData> roundWrongs = new List<AnswerData>();
 
         for (int i = 0; i < 3; i++)
         {
-            if (currentWrongIndex >= wrongAnswers.Count)
+            if (currentWrongIndex >= WrongAnswers.Count)
                 currentWrongIndex = 0;
 
-            roundWrongs.Add(wrongAnswers[currentWrongIndex]);
+            roundWrongs.Add(WrongAnswers[currentWrongIndex]);
             currentWrongIndex++;
         }
 
         List<AnswerData> allAnswers = new List<AnswerData>(roundWrongs);
         allAnswers.Add(chosenCorrectAnswer);
 
-        // Shuffle list
+        // Shuffled de list
         for (int i = 0; i < allAnswers.Count; i++)
         {
             int r = Random.Range(0, allAnswers.Count);
             (allAnswers[i], allAnswers[r]) = (allAnswers[r], allAnswers[i]);
         }
 
-        // Set answer UI
-        for (int i = 0; i < answerUIObjects.Length; i++)
+        for (int i = 0; i < AnswerUIObjects.Length; i++)
         {
-            answerUIObjects[i].imageField.sprite = allAnswers[i].image;
+            AnswerUIObjects[i].ImageField.sprite = allAnswers[i].Image;
 
             if (allAnswers[i] == chosenCorrectAnswer)
                 correctIndex = i;
         }
     }
 
-    // =============================
-    //    USER CLICKED AN ANSWER
-    // =============================
     public void OnAnswerClicked(int index)
     {
         if (index == correctIndex)
@@ -133,7 +117,7 @@ public class SimpleQuestionCheck : MonoBehaviour
 
             currentCorrectIndex++;
 
-            if (currentCorrectIndex >= correctAnswers.Count)
+            if (currentCorrectIndex >= CorrectAnswers.Count)
                 currentCorrectIndex = 0;
 
             NewRound();

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Devs/Kaj/KajScenes/Main Menu.unity
+    path: Assets/Devs/Arend/Main Menu.unity
     guid: 62b60762b2ab28a498f65b8c11698221
   - enabled: 0
     path: Assets/Devs/Kaj/KajScenes/Test Scene.unity
