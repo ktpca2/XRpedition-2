@@ -237,7 +237,7 @@ MonoBehaviour:
   _TotalLoops: 1
   _Player: {fileID: 0}
   _MinSpacingBetweenObjects: 5
-  animal: {fileID: 0}
+  selected: {fileID: 0}
 --- !u!4 &433485537
 Transform:
   m_ObjectHideFlags: 0
@@ -1943,39 +1943,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleQuestionCheck
   Animal:
-  - Object: {fileID: 584735036035147149, guid: eff9c722200f8474ba649d338fec2e1a, type: 3}
-  - Object: {fileID: 1995587602324858274, guid: 71753175470fd59438c708a0e7df9ca3, type: 3}
-  - Object: {fileID: 1996711117402796495, guid: 6c398e1df266ef14b8118624ec8e682c, type: 3}
-  - Object: {fileID: 5556499342910497720, guid: 0c1f4942c15fa854cb8f72570773842b, type: 3}
-  - Object: {fileID: 6406510790430439216, guid: 1b8c3b2d5f3ced8429320fd997f2aea2, type: 3}
-  spawnPoint: {fileID: 1289728678}
-  answerUIObjects:
-  - imageField: {fileID: 469318945}
-  - imageField: {fileID: 128790945}
-  - imageField: {fileID: 513970847}
-  - imageField: {fileID: 681116104}
-  correctAnswers:
-  - image: {fileID: 21300000, guid: cc33908e3b9233b42833e0ec4f247430, type: 3}
-  - image: {fileID: 21300000, guid: 7bac202f7dae2f84ea382efda6a7003e, type: 3}
-  - image: {fileID: 21300000, guid: b532e0f44d12b124fafc4ac5aa3723b0, type: 3}
-  - image: {fileID: 21300000, guid: 87086f20457a7bd4bb4643d42ffbb606, type: 3}
-  - image: {fileID: 21300000, guid: 81aa12c7933e2924a8a1ed1bdc64e404, type: 3}
-  wrongAnswers:
-  - image: {fileID: 21300000, guid: 1da05a16dd918284b8c8d0638efde043, type: 3}
-  - image: {fileID: 21300000, guid: 49bebec46144a674b95cc436372ba13f, type: 3}
-  - image: {fileID: 21300000, guid: 86bd276b3bccf5c4cbfd225ee2a13996, type: 3}
-  - image: {fileID: 21300000, guid: b894bba4a218e664da5e1c470d9b7837, type: 3}
-  - image: {fileID: 21300000, guid: 57915119cb66fd54d91ecc5a634a96af, type: 3}
-  - image: {fileID: 21300000, guid: 2a08923e3b31af443990fd8b0516029d, type: 3}
-  - image: {fileID: 21300000, guid: 2c761c34680d8df4e95706333f92571f, type: 3}
-  - image: {fileID: 21300000, guid: 01dd382e6374f0148a043116f8e186d4, type: 3}
-  - image: {fileID: 21300000, guid: bbc8e9031d2eac84bb23d3e25fd15ffa, type: 3}
-  - image: {fileID: 21300000, guid: 13dc28bd4e1156940bda81735b161c03, type: 3}
-  - image: {fileID: 21300000, guid: fb2cb1071e9fe744387c3839ab634379, type: 3}
-  - image: {fileID: 21300000, guid: 30b8acedf93252149870539c683a5aa7, type: 3}
-  - image: {fileID: 21300000, guid: 340e59ba9ebbfe5418bbdcc05ed5d7b9, type: 3}
-  - image: {fileID: 21300000, guid: dc9fe72cc1ec2654aa70931d55ed32e2, type: 3}
-  - image: {fileID: 21300000, guid: f7c91fd9e85fa194fa3ac7b9ff328c35, type: 3}
+  - Object: {fileID: 2449307234175456289, guid: aec3ccc83a1106d48bf79f330a130507, type: 3}
+  - Object: {fileID: 6156623520795933808, guid: e91c07effaa6e81468cf98c6aa926187, type: 3}
+  - Object: {fileID: 2548057686059029443, guid: 29f40b5cb58071c438c6f35d49fe8ed3, type: 3}
+  - Object: {fileID: 1363685372254534272, guid: ad4d0cb5607d4f0409d5afa6bcd7f35e, type: 3}
+  - Object: {fileID: 6429102988899100317, guid: 9988cea325849fd46871ae20429db9ac, type: 3}
+  SpawnPoint: {fileID: 1289728678}
+  AnswerUIObjects:
+  - ImageField: {fileID: 469318945}
+  - ImageField: {fileID: 128790945}
+  - ImageField: {fileID: 513970847}
+  - ImageField: {fileID: 681116104}
+  CorrectAnswers:
+  - Image: {fileID: 21300000, guid: cc33908e3b9233b42833e0ec4f247430, type: 3}
+  - Image: {fileID: 21300000, guid: 7bac202f7dae2f84ea382efda6a7003e, type: 3}
+  - Image: {fileID: 21300000, guid: b532e0f44d12b124fafc4ac5aa3723b0, type: 3}
+  - Image: {fileID: 21300000, guid: 87086f20457a7bd4bb4643d42ffbb606, type: 3}
+  - Image: {fileID: 21300000, guid: 81aa12c7933e2924a8a1ed1bdc64e404, type: 3}
+  WrongAnswers:
+  - Image: {fileID: 21300000, guid: 1da05a16dd918284b8c8d0638efde043, type: 3}
+  - Image: {fileID: 21300000, guid: 49bebec46144a674b95cc436372ba13f, type: 3}
+  - Image: {fileID: 21300000, guid: 86bd276b3bccf5c4cbfd225ee2a13996, type: 3}
+  - Image: {fileID: 21300000, guid: b894bba4a218e664da5e1c470d9b7837, type: 3}
+  - Image: {fileID: 21300000, guid: 57915119cb66fd54d91ecc5a634a96af, type: 3}
+  - Image: {fileID: 21300000, guid: 2a08923e3b31af443990fd8b0516029d, type: 3}
+  - Image: {fileID: 21300000, guid: 2c761c34680d8df4e95706333f92571f, type: 3}
+  - Image: {fileID: 21300000, guid: 01dd382e6374f0148a043116f8e186d4, type: 3}
+  - Image: {fileID: 21300000, guid: bbc8e9031d2eac84bb23d3e25fd15ffa, type: 3}
+  - Image: {fileID: 21300000, guid: 13dc28bd4e1156940bda81735b161c03, type: 3}
+  - Image: {fileID: 21300000, guid: fb2cb1071e9fe744387c3839ab634379, type: 3}
+  - Image: {fileID: 21300000, guid: 30b8acedf93252149870539c683a5aa7, type: 3}
+  - Image: {fileID: 21300000, guid: 340e59ba9ebbfe5418bbdcc05ed5d7b9, type: 3}
+  - Image: {fileID: 21300000, guid: dc9fe72cc1ec2654aa70931d55ed32e2, type: 3}
+  - Image: {fileID: 21300000, guid: f7c91fd9e85fa194fa3ac7b9ff328c35, type: 3}
 --- !u!4 &1946947267
 Transform:
   m_ObjectHideFlags: 0

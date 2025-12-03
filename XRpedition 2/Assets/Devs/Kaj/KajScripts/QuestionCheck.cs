@@ -14,18 +14,11 @@ public class SimpleQuestionCheck : MonoBehaviour
     [System.Serializable]
     public class AnimalList
     {
-        public UnityEngine.Object Object;   // Prefabs
+        public UnityEngine.Object Object;
     }
 
     public List<AnimalList> Animal;
-    public Transform spawnPoint;            // <<< ONLY ONE SPAWN POINT
-
-    public AnswerUI[] answerUIObjects;
-        public UnityEngine.Object Object;   
-    }
-
-    public List<AnimalList> Animal;
-    public Transform SpawnPoint;           
+    public Transform SpawnPoint;
 
     public AnswerUI[] AnswerUIObjects;
 
