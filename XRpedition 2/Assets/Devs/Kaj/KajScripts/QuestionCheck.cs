@@ -69,13 +69,13 @@ public class SimpleQuestionCheck : MonoBehaviour
     {
         roundCount++;
 
-        SpawnAnimal();
-
         if (roundCount >= 6)
         {
             SceneManager.LoadScene("Main Menu");
             return;
         }
+
+        SpawnAnimal();
 
         AnswerData chosenCorrectAnswer = CorrectAnswers[currentCorrectIndex];
 
