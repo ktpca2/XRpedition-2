@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Orangoetan
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentData
   prefabHolder:
-  - Prefab: {fileID: 3682191967407951830, guid: 127b9060e31f1604dbcbedeed0414640, type: 3}
+  - Prefab: {fileID: 9195367125985999879, guid: e0cdb09d34c1d334c807040d65d3fd35, type: 3}
     Amount: 200
     MinDistanceFromPlayer: 1

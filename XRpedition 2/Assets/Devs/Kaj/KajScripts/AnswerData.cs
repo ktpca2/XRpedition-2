@@ -3,5 +3,5 @@ using UnityEngine;
 [System.Serializable]
 public class AnswerData
 {
-    public Sprite image;
+    public Sprite Image;
 }

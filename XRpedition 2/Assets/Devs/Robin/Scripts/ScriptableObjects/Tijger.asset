@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Tijger
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentData
   prefabHolder:
-  - Prefab: {fileID: 442699248775830243, guid: 4c33a61a8f5e1fe43ac57d91f60bb632, type: 3}
+  - Prefab: {fileID: 8363628851577378516, guid: 670acf2383cdda345889e34012793c4f, type: 3}
     Amount: 10
     MinDistanceFromPlayer: 5
