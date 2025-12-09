@@ -11,6 +11,9 @@ public class ManageRounds : MonoBehaviour
     private Animals animals;
     [SerializeField] private AnswerTesting answer;
 
+    [SerializeField] private EnvironmentData[] environmentData;
+    [SerializeField] private AudioSource walkietalkie;
+
     private int round = 1;
     public bool roundActive;
 
@@ -41,6 +44,7 @@ public class ManageRounds : MonoBehaviour
         {
             case 1:
                 _soundManager.PlayPolarAmbience();
+                walkietalkie.PlayOneShot(environmentData[0].info);
                 break;
             case 2:
                 _soundManager.PlayAfricaAmbience();
