@@ -67,10 +67,13 @@ public class AnswerTesting : MonoBehaviour
 
             if (currentCorrectIndex >= CorrectAnswers.Count)
                 currentCorrectIndex = 0;
+
+            rounds.playCorrect();
         }
         else
         {
             Debug.Log("Wrong!");
+            rounds.playWrong();
         }
         rounds.EndingRound();
     }

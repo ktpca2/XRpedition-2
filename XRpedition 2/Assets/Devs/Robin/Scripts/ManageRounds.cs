@@ -66,6 +66,16 @@ public class ManageRounds : MonoBehaviour
         }
     }
 
+    public void playCorrect()
+    {
+        walkietalkie.resource = environmentData[round - 1].correct;
+    }
+
+    public void playWrong()
+    {
+        walkietalkie.resource = environmentData[round - 1].wrong;
+    }
+
     private void buttonInactive()
     {
         foreach (Button button in buttons)
@@ -85,6 +95,7 @@ public class ManageRounds : MonoBehaviour
 
     public void EndingRound()
     {
+        walkietalkie.Play();
         StartCoroutine(EndRound());
     }
 
