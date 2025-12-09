@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ManageRounds : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ManageRounds : MonoBehaviour
 
     [SerializeField] private EnvironmentData[] environmentData;
     [SerializeField] private AudioSource walkietalkie;
+
+    [SerializeField] private Button[] buttons;
 
     private int round = 1;
     public bool roundActive;
@@ -32,9 +35,10 @@ public class ManageRounds : MonoBehaviour
 
     private void StartRound()
     {
+        buttonInactive();
         answer.AnswerChecking();
         generation.Generate(animal);
-        roundActive = true;
+        StartCoroutine(buttonActive(environmentData[round-1].info));
         RoundSounds();
     }
 
@@ -44,20 +48,46 @@ public class ManageRounds : MonoBehaviour
         {
             case 1:
                 _soundManager.PlayPolarAmbience();
-                walkietalkie.PlayOneShot(environmentData[0].info);
+                walkietalkie.resource = environmentData[0].info;
+                walkietalkie.Play();
                 break;
             case 2:
                 _soundManager.PlayAfricaAmbience();
+                walkietalkie.resource = environmentData[1].info;
+                walkietalkie.Play();
                 break;
             case 3:
                 _soundManager.PlayChainsawSound();
+                walkietalkie.resource = environmentData[2].info;
+                walkietalkie.Play();
                 break;
             case 4:
                 _soundManager.PlayJungleAmbience();
+                walkietalkie.resource = environmentData[3].info;
+                walkietalkie.Play();
                 break;
             case 5:
                 _soundManager.PlayPolarAmbience();
+                walkietalkie.resource = environmentData[4].info;
+                walkietalkie.Play();
                 break;
+        }
+    }
+
+    private void buttonInactive()
+    {
+        foreach (Button button in buttons)
+        {
+            button.interactable = false;
+        }
+    }
+
+    private IEnumerator buttonActive(AudioClip audio)
+    {
+        yield return new WaitForSeconds(audio.length);
+        foreach (Button button in buttons)
+        {
+            button.interactable = true;
         }
     }
 

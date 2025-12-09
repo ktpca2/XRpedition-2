@@ -242,7 +242,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -252,7 +252,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -287,7 +287,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -622,7 +622,16 @@ MonoBehaviour:
   answer: {fileID: 1005539667}
   environmentData:
   - {fileID: 11400000, guid: 306e03351feb87145a7c808f2fae0eaf, type: 2}
-  walkietalkie: {fileID: 0}
+  - {fileID: 11400000, guid: 1a1df8547254e3c42afc439993853252, type: 2}
+  - {fileID: 11400000, guid: ca6334f721c8ea44889f847d98b0063f, type: 2}
+  - {fileID: 11400000, guid: e03235dcf1cf31c439409c20103e97e2, type: 2}
+  - {fileID: 11400000, guid: 495f34f8cdc68cc4ba03e0df1057d1b8, type: 2}
+  walkietalkie: {fileID: 362666099}
+  buttons:
+  - {fileID: 867050861}
+  - {fileID: 1994516221}
+  - {fileID: 1678812844}
+  - {fileID: 316371035}
   roundActive: 0
 --- !u!4 &508595199
 Transform:
@@ -652,7 +661,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
