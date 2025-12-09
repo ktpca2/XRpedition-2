@@ -25,19 +25,11 @@ public class ManageRounds : MonoBehaviour
         StartRound();
     }
 
-    private void Update()
-    {
-        if (round > 5)
-        {
-            SceneManager.LoadScene("Main Menu");
-        }
-    }
-
     private void StartRound()
     {
         buttonInactive();
         answer.AnswerChecking();
-        generation.Generate(animal);
+        generation.Generate();
         StartCoroutine(buttonActive(environmentData[round-1].info));
         RoundSounds();
     }
@@ -102,6 +94,10 @@ public class ManageRounds : MonoBehaviour
         roundActive = false;
         animal.GetEnvironment();
         round++;
+        if (round > 5)
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
         StartRound();
     }
 }
