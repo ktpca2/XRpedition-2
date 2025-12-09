@@ -32,7 +32,6 @@ public class Generation : MonoBehaviour
     private void Start()
     {
         selected = GetComponent<AnimalSelection>();
-        Generate(selected);
     }
 
     public void Generate(AnimalSelection animal)

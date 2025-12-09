@@ -10,15 +10,19 @@ public class MainMenuAudio : MonoBehaviour
     
     void Start()
     {
-        Buttons[0].interactable = false;
-        Buttons[1].interactable = false;
+        foreach (Button button in Buttons)
+        {
+            button.interactable = false;
+        }
         StartCoroutine(DisableMenu());
     }
 
     IEnumerator DisableMenu()
     {
         yield return new WaitForSeconds(Intro.length);
-        Buttons[0].interactable = true;
-        Buttons[1].interactable = true;
+        foreach (Button button in Buttons)
+        {
+            button.interactable = true;
+        }
     }
 }

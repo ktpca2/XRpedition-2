@@ -1,36 +1,107 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ManageRounds : MonoBehaviour
 {
     [SerializeField] private Generation generation;
     [SerializeField] private AnimalSelection animal;
+    [SerializeField] private SoundManager _soundManager;
 
-    private int round = 0;
-    private bool roundActive;
+    private Animals animals;
+    [SerializeField] private AnswerTesting answer;
+
+    [SerializeField] private EnvironmentData[] environmentData;
+    [SerializeField] private AudioSource walkietalkie;
+
+    [SerializeField] private Button[] buttons;
+
+    private int round = 1;
+    public bool roundActive;
+
+    private void Start()
+    {
+        StartRound();
+    }
 
     private void Update()
     {
-        StartRound();
-        if (roundActive)
+        if (round > 5)
         {
-            Round();
+            SceneManager.LoadScene("Main Menu");
         }
-        EndRound();
     }
 
     private void StartRound()
     {
-        round++;
+        buttonInactive();
+        answer.AnswerChecking();
         generation.Generate(animal);
+        StartCoroutine(buttonActive(environmentData[round-1].info));
+        RoundSounds();
     }
 
-    private void Round()
+    private void RoundSounds()
     {
-
+        switch (round)
+        {
+            case 1:
+                _soundManager.PlayPolarAmbience();
+                walkietalkie.resource = environmentData[0].info;
+                walkietalkie.Play();
+                break;
+            case 2:
+                _soundManager.PlayAfricaAmbience();
+                walkietalkie.resource = environmentData[1].info;
+                walkietalkie.Play();
+                break;
+            case 3:
+                _soundManager.PlayChainsawSound();
+                walkietalkie.resource = environmentData[2].info;
+                walkietalkie.Play();
+                break;
+            case 4:
+                _soundManager.PlayJungleAmbience();
+                walkietalkie.resource = environmentData[3].info;
+                walkietalkie.Play();
+                break;
+            case 5:
+                _soundManager.PlayPolarAmbience();
+                walkietalkie.resource = environmentData[4].info;
+                walkietalkie.Play();
+                break;
+        }
     }
 
-    private void EndRound()
+    private void buttonInactive()
     {
+        foreach (Button button in buttons)
+        {
+            button.interactable = false;
+        }
+    }
+
+    private IEnumerator buttonActive(AudioClip audio)
+    {
+        yield return new WaitForSeconds(audio.length);
+        foreach (Button button in buttons)
+        {
+            button.interactable = true;
+        }
+    }
+
+    public void EndingRound()
+    {
+        StartCoroutine(EndRound());
+    }
+
+    private IEnumerator EndRound()
+    {
+        yield return new WaitForSeconds(5);
+        roundActive = false;
         animal.GetEnvironment();
+        round++;
+        StartRound();
     }
 }
