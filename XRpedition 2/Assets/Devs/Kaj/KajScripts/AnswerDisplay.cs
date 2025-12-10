@@ -8,6 +8,6 @@ public class AnswerDisplay : MonoBehaviour
     public void UpdateRoundsDisplay()
     {
         RoundsCorrectDisplay++;
-        Console.WriteLine(RoundsCorrectDisplay.ToString(),"rounds correct!");
+        Debug.Log(RoundsCorrectDisplay.ToString() + " rounds correct!");
     }
 }

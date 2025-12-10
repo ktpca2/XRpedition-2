@@ -20,6 +20,8 @@ public class ManageRounds : MonoBehaviour
     private int round = 1;
     public bool roundActive;
 
+    private float audioTime;
+
     private void Start()
     {
         StartRound();
@@ -69,11 +71,13 @@ public class ManageRounds : MonoBehaviour
     public void playCorrect()
     {
         walkietalkie.resource = environmentData[round - 1].correct;
+        audioTime = environmentData[round - 1].correct.length;
     }
 
     public void playWrong()
     {
         walkietalkie.resource = environmentData[round - 1].wrong;
+        audioTime = environmentData[round - 1].wrong.length;
     }
 
     private void buttonInactive()
@@ -101,7 +105,7 @@ public class ManageRounds : MonoBehaviour
 
     private IEnumerator EndRound()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(audioTime);
         roundActive = false;
         generation.DeleteLastRound();
         animal.GetEnvironment();
