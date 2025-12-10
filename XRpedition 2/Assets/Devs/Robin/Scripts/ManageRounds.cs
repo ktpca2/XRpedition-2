@@ -103,6 +103,7 @@ public class ManageRounds : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         roundActive = false;
+        generation.DeleteLastRound();
         animal.GetEnvironment();
         round++;
         if (round > 5)

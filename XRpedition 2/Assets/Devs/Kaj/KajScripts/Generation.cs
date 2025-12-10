@@ -92,6 +92,14 @@ public class Generation : MonoBehaviour
         }
     }
 
+    public void DeleteLastRound()
+    {
+        foreach(GameObject spawnObject in spawnedObjects)
+        {
+            Destroy(spawnObject);
+        }
+    }
+
     private float GetPrefabRadius(GameObject prefab)
     {
         var cap = prefab.GetComponentInChildren<CapsuleCollider>();
