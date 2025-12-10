@@ -27,15 +27,16 @@ public class Generation : MonoBehaviour
 
     private List<(Vector3 pos, float radius)> placed = new List<(Vector3, float)>();
 
+    private List<GameObject> spawnedObjects = new List<GameObject>();
+
     [SerializeField] private AnimalSelection selected;
 
     private void Start()
     {
         selected = GetComponent<AnimalSelection>();
-        Generate(selected);
     }
 
-    public void Generate(AnimalSelection animal)
+    public void Generate()
     {
         _SpawnList = selected.Environment.prefabHolder;
 
@@ -86,8 +87,16 @@ public class Generation : MonoBehaviour
             {
                 Vector3 pos = FindValidPosition(radius, col, entry.MinDistanceFromPlayer);
                 placed.Add((pos, radius));
-                Instantiate(entry.Prefab, pos, Quaternion.identity);
+                spawnedObjects.Add(Instantiate(entry.Prefab, pos, Quaternion.identity));
             }
+        }
+    }
+
+    public void DeleteLastRound()
+    {
+        foreach(GameObject spawnObject in spawnedObjects)
+        {
+            Destroy(spawnObject);
         }
     }
 
