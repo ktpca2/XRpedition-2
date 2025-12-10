@@ -16,3 +16,6 @@ MonoBehaviour:
   - Prefab: {fileID: 9195367125985999879, guid: e0cdb09d34c1d334c807040d65d3fd35, type: 3}
     Amount: 200
     MinDistanceFromPlayer: 1
+  info: {fileID: 8300000, guid: 78ba4cfdc8739e14d836e5217ed0e255, type: 3}
+  correct: {fileID: 0}
+  wrong: {fileID: 0}
