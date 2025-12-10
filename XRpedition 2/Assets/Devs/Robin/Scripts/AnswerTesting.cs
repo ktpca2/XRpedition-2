@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class AnswerTesting : MonoBehaviour
 {
+    public AnswerDisplay answerDisplay;
+
     [System.Serializable]
     public class AnswerUI
     {
@@ -62,6 +64,7 @@ public class AnswerTesting : MonoBehaviour
         if (index == correctIndex)
         {
             Debug.Log("Correct!");
+            answerDisplay.UpdateRoundsDisplay();
 
             currentCorrectIndex++;
 
