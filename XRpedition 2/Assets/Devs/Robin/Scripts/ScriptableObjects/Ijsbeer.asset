@@ -16,13 +16,13 @@ MonoBehaviour:
   - Prefab: {fileID: 5999401319078857028, guid: 49505c2091c07c24291c1ffadccf4d4d, type: 3}
     Amount: 5
     MinDistanceFromPlayer: 10
+  - Prefab: {fileID: 5999401319078857028, guid: 49505c2091c07c24291c1ffadccf4d4d, type: 3}
+    Amount: 5
+    MinDistanceFromPlayer: 10
   - Prefab: {fileID: 8407625844555014460, guid: d8a2244a84e545a448ccadad0296a962, type: 3}
     Amount: 5
     MinDistanceFromPlayer: 10
-  - Prefab: {fileID: 3747452871203141187, guid: c6472998d9af3c043b72daa59ed7e748, type: 3}
-    Amount: 5
-    MinDistanceFromPlayer: 10
-  - Prefab: {fileID: 3747452871203141187, guid: c6472998d9af3c043b72daa59ed7e748, type: 3}
+  - Prefab: {fileID: 4362594003031038005, guid: 58ec430b6b8e3624d8ad4adc2607462e, type: 3}
     Amount: 2
     MinDistanceFromPlayer: 10
   - Prefab: {fileID: 7301744043088710818, guid: 2f0f415887fa0a54d8c1a8b6d7e13b2a, type: 3}
