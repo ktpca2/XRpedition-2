@@ -124,25 +124,25 @@ public class SoundManager : MonoBehaviour
 
 
 
-    private void PlayPolarAmbience()
+    public void PlayPolarAmbience()
     {
         AmbienceSource.resource = PolarAmbience;
         AmbienceSource.Play();
     }
 
-    private void PlayJungleAmbience()
+    public void PlayJungleAmbience()
     {
         AmbienceSource.resource = JungleAmbience;
         AmbienceSource.Play();
     }
 
-    private void PlayAfricaAmbience()
+    public void PlayAfricaAmbience()
     {
         AmbienceSource.resource = AfricaAmbience;
         AmbienceSource.Play();
     }
 
-    private void PlayWindAmbience()
+    public void PlayWindAmbience()
     {
         AmbienceSource.resource = WindAmbience;
         AmbienceSource.Play();

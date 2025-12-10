@@ -5,4 +5,7 @@ using UnityEngine;
 public class EnvironmentData : ScriptableObject
 {
     public List<SpawnEntry> prefabHolder;
+    public AudioClip info;
+    public AudioClip correct;
+    public AudioClip wrong;
 }
