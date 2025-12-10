@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Button : MonoBehaviour
+public class MainMenuButton : MonoBehaviour
 {
+    [SerializeField] private string _GoScene;
     public void StartMenu()
     {
-        SceneManager.LoadScene("Main Scene");
+        SceneManager.LoadScene(_GoScene);
     }
 
     public void ExitMenu()
