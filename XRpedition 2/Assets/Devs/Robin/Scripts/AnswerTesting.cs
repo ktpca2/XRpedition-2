@@ -61,6 +61,10 @@ public class AnswerTesting : MonoBehaviour
 
     public void OnAnswerClicked(int index)
     {
+        if (currentIndex >= CorrectAnswers.Count)
+            currentIndex = 0;
+        rounds.EndingRound();
+
         if (index == correctIndex)
         {
             Debug.Log("Correct!");
@@ -75,8 +79,6 @@ public class AnswerTesting : MonoBehaviour
         }
         currentIndex++;
 
-        if (currentIndex >= CorrectAnswers.Count)
-            currentIndex = 0;
-        rounds.EndingRound();
+       
     }
 }
