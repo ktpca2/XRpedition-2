@@ -29,10 +29,6 @@ public class ManageRounds : MonoBehaviour
 
     private void Update()
     {
-        if (round >= 6)
-        {
-            SceneManager.LoadScene("Win Scene");
-        }
     }
 
     private void StartRound()
@@ -107,6 +103,10 @@ public class ManageRounds : MonoBehaviour
 
     public void EndingRound()
     {
+        if (round >= 6)
+        {
+            SceneManager.LoadScene("Win Scene");
+        }
         buttonInactive();
         walkietalkie.Play();
         StartCoroutine(EndRound());

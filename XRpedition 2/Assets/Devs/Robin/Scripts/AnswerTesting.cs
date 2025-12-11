@@ -20,14 +20,14 @@ public class AnswerTesting : MonoBehaviour
     public List<AnswerData> CorrectAnswers;
     public List<AnswerData> WrongAnswers;
 
-    private int currentCorrectIndex = 0;
+    private int currentIndex = 0;
     private int currentWrongIndex = 0;
 
     private int correctIndex;
 
     public void AnswerChecking()
     {
-        AnswerData chosenCorrectAnswer = CorrectAnswers[currentCorrectIndex];
+        AnswerData chosenCorrectAnswer = CorrectAnswers[currentIndex];
 
         List<AnswerData> roundWrongs = new List<AnswerData>();
 
@@ -66,11 +66,6 @@ public class AnswerTesting : MonoBehaviour
             Debug.Log("Correct!");
             answerDisplay.UpdateRoundsDisplay();
 
-            currentCorrectIndex++;
-
-            if (currentCorrectIndex >= CorrectAnswers.Count)
-                currentCorrectIndex = 0;
-
             rounds.playCorrect();
         }
         else
@@ -78,6 +73,10 @@ public class AnswerTesting : MonoBehaviour
             Debug.Log("Wrong!");
             rounds.playWrong();
         }
+        currentIndex++;
+
+        if (currentIndex >= CorrectAnswers.Count)
+            currentIndex = 0;
         rounds.EndingRound();
     }
 }

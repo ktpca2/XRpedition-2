@@ -20,7 +20,6 @@ public class AnswerDisplay : MonoBehaviour
 
     private void Start()
     {
-        // Show "0 / 5" as soon as the scene starts
         UpdateText();
     }
 
@@ -29,6 +28,7 @@ public class AnswerDisplay : MonoBehaviour
         RoundsCorrectDisplay++;
         UpdateText();
         Debug.Log(RoundsCorrectDisplay + " rounds correct!");
+        SaveScore();
     }
 
     private void UpdateText()
@@ -37,5 +37,10 @@ public class AnswerDisplay : MonoBehaviour
         {
             roundsText.text = $"{RoundsCorrectDisplay} / 5";
         }
+    }
+
+    private void SaveScore()
+    {
+        PlayerPrefs.SetInt("score", RoundsCorrectDisplay);
     }
 }
