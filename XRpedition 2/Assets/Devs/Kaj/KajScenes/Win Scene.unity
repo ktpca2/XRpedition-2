@@ -1152,6 +1152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 880314437}
+  - component: {fileID: 880314438}
   m_Layer: 5
   m_Name: ButtonManager
   m_TagString: Untagged
@@ -1179,6 +1180,18 @@ Transform:
   - {fileID: 505938100}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &880314438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880314436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337329203e18f2642913fd36c20744ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoadScore
 --- !u!1 &940884881
 GameObject:
   m_ObjectHideFlags: 0
