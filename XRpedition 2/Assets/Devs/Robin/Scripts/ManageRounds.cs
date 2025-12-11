@@ -99,6 +99,7 @@ public class ManageRounds : MonoBehaviour
 
     public void EndingRound()
     {
+        buttonInactive();
         walkietalkie.Play();
         StartCoroutine(EndRound());
     }
