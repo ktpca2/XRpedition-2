@@ -13,15 +13,9 @@ MonoBehaviour:
   m_Name: Ijsbeer
   m_EditorClassIdentifier: Assembly-CSharp::AnimalData
   prefabHolder:
-  - Prefab: {fileID: 5999401319078857028, guid: 49505c2091c07c24291c1ffadccf4d4d, type: 3}
+  - Prefab: {fileID: 7446881467359649734, guid: e76793a0adeee1545a299dc9df17fc9c, type: 3}
     Amount: 5
     MinDistanceFromPlayer: 10
-  - Prefab: {fileID: 5999401319078857028, guid: 49505c2091c07c24291c1ffadccf4d4d, type: 3}
-    Amount: 6
-    MinDistanceFromPlayer: 5
-  - Prefab: {fileID: 8407625844555014460, guid: d8a2244a84e545a448ccadad0296a962, type: 3}
-    Amount: 4
-    MinDistanceFromPlayer: 7
   - Prefab: {fileID: 4362594003031038005, guid: 58ec430b6b8e3624d8ad4adc2607462e, type: 3}
     Amount: 2
     MinDistanceFromPlayer: 12
