@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class AnswerTesting : MonoBehaviour
 {
+    public AnswerDisplay answerDisplay;
+
     [System.Serializable]
     public class AnswerUI
     {
@@ -18,14 +20,14 @@ public class AnswerTesting : MonoBehaviour
     public List<AnswerData> CorrectAnswers;
     public List<AnswerData> WrongAnswers;
 
-    private int currentCorrectIndex = 0;
+    private int currentIndex = 0;
     private int currentWrongIndex = 0;
 
     private int correctIndex;
 
     public void AnswerChecking()
     {
-        AnswerData chosenCorrectAnswer = CorrectAnswers[currentCorrectIndex];
+        AnswerData chosenCorrectAnswer = CorrectAnswers[currentIndex];
 
         List<AnswerData> roundWrongs = new List<AnswerData>();
 
@@ -62,11 +64,7 @@ public class AnswerTesting : MonoBehaviour
         if (index == correctIndex)
         {
             Debug.Log("Correct!");
-
-            currentCorrectIndex++;
-
-            if (currentCorrectIndex >= CorrectAnswers.Count)
-                currentCorrectIndex = 0;
+            answerDisplay.UpdateRoundsDisplay();
 
             rounds.playCorrect();
         }
@@ -75,6 +73,10 @@ public class AnswerTesting : MonoBehaviour
             Debug.Log("Wrong!");
             rounds.playWrong();
         }
+        currentIndex++;
+
+        if (currentIndex >= CorrectAnswers.Count)
+            currentIndex = 0;
         rounds.EndingRound();
     }
 }

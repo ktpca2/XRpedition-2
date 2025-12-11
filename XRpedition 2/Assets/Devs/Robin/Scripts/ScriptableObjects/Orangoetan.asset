@@ -13,9 +13,27 @@ MonoBehaviour:
   m_Name: Orangoetan
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentData
   prefabHolder:
+  - Prefab: {fileID: 334409153443869941, guid: c1435db538f085d488e57d16dbc400aa, type: 3}
+    Amount: 7
+    MinDistanceFromPlayer: 5
   - Prefab: {fileID: 9195367125985999879, guid: e0cdb09d34c1d334c807040d65d3fd35, type: 3}
-    Amount: 200
+    Amount: 22
+    MinDistanceFromPlayer: 3
+  - Prefab: {fileID: 1792738618060064385, guid: 0fb9997b020bdf244aed662240a165ec, type: 3}
+    Amount: 2
+    MinDistanceFromPlayer: 10
+  - Prefab: {fileID: 8608743034259520402, guid: 9d65431692231664d92bfb7ab28208e9, type: 3}
+    Amount: 26
+    MinDistanceFromPlayer: 2.5
+  - Prefab: {fileID: 5688991495043742122, guid: 5d615fbda8d1bd64ea9df016da390638, type: 3}
+    Amount: 24
+    MinDistanceFromPlayer: 2.5
+  - Prefab: {fileID: 5256408442182069797, guid: 3d48c19d4c01b3949a6e0788dd5fe1fc, type: 3}
+    Amount: 5
+    MinDistanceFromPlayer: 3
+  - Prefab: {fileID: 5256408442182069797, guid: 3d48c19d4c01b3949a6e0788dd5fe1fc, type: 3}
+    Amount: 4
     MinDistanceFromPlayer: 1
   info: {fileID: 8300000, guid: 78ba4cfdc8739e14d836e5217ed0e255, type: 3}
-  correct: {fileID: 0}
-  wrong: {fileID: 0}
+  correct: {fileID: 8300000, guid: 4dd7d8f0d28527444b682c07a9171b33, type: 3}
+  wrong: {fileID: 8300000, guid: 4030029969741f74d94ea84e6baff4b9, type: 3}

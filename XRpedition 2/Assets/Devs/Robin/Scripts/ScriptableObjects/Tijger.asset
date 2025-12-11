@@ -13,9 +13,36 @@ MonoBehaviour:
   m_Name: Tijger
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentData
   prefabHolder:
-  - Prefab: {fileID: 8363628851577378516, guid: 670acf2383cdda345889e34012793c4f, type: 3}
-    Amount: 10
+  - Prefab: {fileID: 7528060815880711896, guid: 1cebbccf04daacf46bec6c42b7f065eb, type: 3}
+    Amount: 6
+    MinDistanceFromPlayer: 3
+  - Prefab: {fileID: 7166588096165784270, guid: ebb949d45775d52438b23f7744abec37, type: 3}
+    Amount: 5
+    MinDistanceFromPlayer: 3
+  - Prefab: {fileID: 1965793877165472741, guid: e0247db181d7c704aa681fb4987ffab3, type: 3}
+    Amount: 2
+    MinDistanceFromPlayer: 2
+  - Prefab: {fileID: 6001108754043277826, guid: 7eeaa55796d5fff4e9779bdfab901401, type: 3}
+    Amount: 12
     MinDistanceFromPlayer: 5
+  - Prefab: {fileID: 4614513065258112525, guid: ffd410ab8c51c604db2527aaac27e861, type: 3}
+    Amount: 10
+    MinDistanceFromPlayer: 2
+  - Prefab: {fileID: 8363628851577378516, guid: 670acf2383cdda345889e34012793c4f, type: 3}
+    Amount: 20
+    MinDistanceFromPlayer: 3
+  - Prefab: {fileID: 4469409960386333131, guid: 8b7c84d05c723d349afc6d2545208d2a, type: 3}
+    Amount: 14
+    MinDistanceFromPlayer: 2
+  - Prefab: {fileID: 4108613347862887965, guid: 875174eb45f565f43848490b171aaee2, type: 3}
+    Amount: 20
+    MinDistanceFromPlayer: 2
+  - Prefab: {fileID: 8153917527438361421, guid: aebe37315eb2c084c93f56a0a8bb09ae, type: 3}
+    Amount: 9
+    MinDistanceFromPlayer: 4
+  - Prefab: {fileID: 8813206868756782098, guid: 7701ccbde9f6904418ac7a7ec79b57ff, type: 3}
+    Amount: 20
+    MinDistanceFromPlayer: 2
   info: {fileID: 8300000, guid: a66d6c6cd36ef074cbe88fe84570c15b, type: 3}
-  correct: {fileID: 0}
-  wrong: {fileID: 0}
+  correct: {fileID: 8300000, guid: 03c6d18c5159d454c999b26f60180b58, type: 3}
+  wrong: {fileID: 8300000, guid: 675302830f4edac4794900ffe7a839ca, type: 3}
