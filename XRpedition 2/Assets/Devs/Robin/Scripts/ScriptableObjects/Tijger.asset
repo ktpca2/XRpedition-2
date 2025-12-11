@@ -17,5 +17,5 @@ MonoBehaviour:
     Amount: 10
     MinDistanceFromPlayer: 5
   info: {fileID: 8300000, guid: a66d6c6cd36ef074cbe88fe84570c15b, type: 3}
-  correct: {fileID: 0}
-  wrong: {fileID: 0}
+  correct: {fileID: 8300000, guid: 03c6d18c5159d454c999b26f60180b58, type: 3}
+  wrong: {fileID: 8300000, guid: 675302830f4edac4794900ffe7a839ca, type: 3}
