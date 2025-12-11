@@ -1,25 +1,25 @@
+using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.Audio;
+using System.Collections.Generic;
 
 public class WalkieTalkieRespawn : MonoBehaviour
 {
     [SerializeField] private GameObject respawnPoint;
+    [SerializeField] private List<AudioResource> throwAudios;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private AudioSource aud;
+
     void Start()
     {
-        Debug.Log("Hello World");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
        
-        transform.position = respawnPoint.transform.position;
+    }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        aud.resource = throwAudios[Random.Range(0, throwAudios.Count)];
+        //aud.Play();
+        transform.position = respawnPoint.transform.position;
     }
 }

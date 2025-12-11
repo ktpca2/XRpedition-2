@@ -71,7 +71,7 @@ public class SimpleQuestionCheck : MonoBehaviour
 
         if (roundCount >= 6)
         {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Win Scene");
             return;
         }
 
