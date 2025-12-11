@@ -27,6 +27,14 @@ public class ManageRounds : MonoBehaviour
         StartRound();
     }
 
+    private void Update()
+    {
+        if (round >= 6)
+        {
+            SceneManager.LoadScene("Win Scene");
+        }
+    }
+
     private void StartRound()
     {
         buttonInactive();
