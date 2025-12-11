@@ -488,6 +488,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac34da2444e4fa04e913108f6f684499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManageRounds
+  Animal:
+  - Object: {fileID: 2449307234175456289, guid: aec3ccc83a1106d48bf79f330a130507, type: 3}
+  - Object: {fileID: 6156623520795933808, guid: e91c07effaa6e81468cf98c6aa926187, type: 3}
+  - Object: {fileID: 2548057686059029443, guid: 29f40b5cb58071c438c6f35d49fe8ed3, type: 3}
+  - Object: {fileID: 1363685372254534272, guid: ad4d0cb5607d4f0409d5afa6bcd7f35e, type: 3}
+  - Object: {fileID: 6429102988899100317, guid: 9988cea325849fd46871ae20429db9ac, type: 3}
   generation: {fileID: 433485536}
   animal: {fileID: 433485538}
   _soundManager: {fileID: 508595197}
@@ -504,6 +510,8 @@ MonoBehaviour:
   - {fileID: 1994516221}
   - {fileID: 1678812844}
   - {fileID: 316371035}
+  SpawnPoints:
+  - {fileID: 2048855943}
   roundActive: 0
 --- !u!4 &508595199
 Transform:
@@ -630,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnswerDisplay
   RoundsCorrectDisplay: 0
+  roundsText: {fileID: 0}
 --- !u!1 &552635366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,6 +2628,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008825180}
   m_CullTransparentMesh: 1
+--- !u!1 &2048855942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2048855943}
+  m_Layer: 0
+  m_Name: Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2048855943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048855942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.32451, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2141254494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2708,3 +2748,4 @@ SceneRoots:
   - {fileID: 1706556306}
   - {fileID: 433485537}
   - {fileID: 1430233020}
+  - {fileID: 2048855943}
