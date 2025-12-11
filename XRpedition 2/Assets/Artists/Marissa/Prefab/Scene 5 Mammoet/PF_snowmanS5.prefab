@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 366da1d56e87c1f47a2562120761cc0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.384428
+      value: -1.4196814
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 366da1d56e87c1f47a2562120761cc0c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 366da1d56e87c1f47a2562120761cc0c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.39412
+      value: -5.480863
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 366da1d56e87c1f47a2562120761cc0c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ec712f65f8b837c4eb3802ab853ec19b, type: 2}
     - target: {fileID: 919132149155446097, guid: 366da1d56e87c1f47a2562120761cc0c, type: 3}
       propertyPath: m_Name
-      value: snowmannew
+      value: PF_snowmanS5
       objectReference: {fileID: 0}
     - target: {fileID: 5292674569965080148, guid: 366da1d56e87c1f47a2562120761cc0c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
