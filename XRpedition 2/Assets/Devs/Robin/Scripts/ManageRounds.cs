@@ -145,10 +145,7 @@ public class ManageRounds : MonoBehaviour
 
     public void EndingRound()
     {
-        if (round >= 6)
-        {
-            SceneManager.LoadScene("Win Scene");
-        }
+        
         SpawnAnimal();
         buttonInactive();
         walkietalkie.Play();
@@ -157,16 +154,16 @@ public class ManageRounds : MonoBehaviour
 
     private IEnumerator EndRound()
     {
-        yield return new WaitForSeconds(audioTime);
+        yield return new WaitForSeconds(audioTime); 
+        if (round >= 6)
+        {
+            SceneManager.LoadScene("Win Scene");
+        }
         DespawnAnimal();
         roundActive = false;
         generation.DeleteLastRound();
         animal.GetEnvironment();
         round++;
-        if (round > 5)
-        {
-            SceneManager.LoadScene("Main Menu");
-        }
         StartRound();
     }
 }
