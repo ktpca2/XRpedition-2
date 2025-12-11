@@ -1,10 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static SimpleQuestionCheck;
 
 public class ManageRounds : MonoBehaviour
 {
+    public List<AnimalList> Animal;
+
     [SerializeField] private Generation generation;
     [SerializeField] private AnimalSelection animal;
     [SerializeField] private SoundManager _soundManager;
@@ -17,6 +21,12 @@ public class ManageRounds : MonoBehaviour
 
     [SerializeField] private Button[] buttons;
 
+    [SerializeField] private Transform[] SpawnPoints;
+
+    private int currentAnimalIndex = 0;     // Dier het moet gaan spawnen
+    private GameObject currentAnimal;
+    private List<GameObject> currentAnimals;
+
     private int round = 1;
     public bool roundActive;
 
@@ -24,11 +34,43 @@ public class ManageRounds : MonoBehaviour
 
     private void Start()
     {
+        currentAnimals = new List<GameObject>();
         StartRound();
     }
 
-    private void Update()
+    private void SpawnAnimal()
     {
+        if (currentAnimalIndex >= Animal.Count)
+            currentAnimalIndex = 0;
+
+        GameObject prefab = Animal[currentAnimalIndex].Object as GameObject;
+
+        foreach (Transform spawnPoint in SpawnPoints)
+        {
+            if (prefab != null)
+            {
+                currentAnimal = Instantiate(
+                    prefab,
+                    spawnPoint.position,
+                    prefab.transform.rotation
+                );
+                currentAnimals.Add(currentAnimal);
+            }
+            else
+            {
+                Debug.LogWarning("Animal entry is not a GameObject prefab!");
+            }
+        }
+
+        currentAnimalIndex++;
+    }
+
+    private void DespawnAnimal()
+    {
+        foreach (GameObject animal in currentAnimals)
+        {
+            Destroy(animal);
+        }
     }
 
     private void StartRound()
@@ -107,6 +149,7 @@ public class ManageRounds : MonoBehaviour
         {
             SceneManager.LoadScene("Win Scene");
         }
+        SpawnAnimal();
         buttonInactive();
         walkietalkie.Play();
         StartCoroutine(EndRound());
@@ -115,6 +158,7 @@ public class ManageRounds : MonoBehaviour
     private IEnumerator EndRound()
     {
         yield return new WaitForSeconds(audioTime);
+        DespawnAnimal();
         roundActive = false;
         generation.DeleteLastRound();
         animal.GetEnvironment();
